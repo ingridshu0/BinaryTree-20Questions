@@ -1,6 +1,6 @@
 // TODO TEST DIFFERENT CASES FOR ALL METHODS
 
-package BinaryTree;
+//package BinaryTree;
 
 /**
  * Runner class for BinaryTree<E>
