@@ -4,7 +4,7 @@
  * Stack- LIFO
  */
 
-package BinaryTree;
+//package BinaryTree;
 
 public interface Stack<E>
 {	
