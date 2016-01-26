@@ -1,13 +1,3 @@
-/*
- * ifLeaf? 
- * diff == 1
- * Left Height == Right Height
- * 	check if left complete, right full?
- * 
- * heights =
- * Left full, right complete? 
- */
-
 /**
  * BINARY TREE
  * 
@@ -19,6 +9,11 @@ package BinaryTree;
 import java.lang.Math;
 import java.util.Iterator;
 
+/**
+ * BinaryTree<E>
+ * 
+ * @author ingrid
+ */
 public class BinaryTree<E> implements Iterable<E> {
 	
 	//
@@ -43,7 +38,8 @@ public class BinaryTree<E> implements Iterable<E> {
 
 	
 	/**
-	 * Set value equal to v, left and right are null
+	 * Constructor
+	 * Sets value equal to v, left and right are null
 	 * 
 	 * @param v
 	 */
@@ -69,8 +65,9 @@ public class BinaryTree<E> implements Iterable<E> {
 	
 	// Accessors:
 	/**
+	 * returns BinaryTree to the left of this
 	 * 
-	 * @return
+	 * @return BinaryTree to the left of this
 	 */
 	public BinaryTree<E> left()
 	{
@@ -79,8 +76,9 @@ public class BinaryTree<E> implements Iterable<E> {
 	
 	
 	/**
+	 * returns BinaryTree to the right of this
 	 * 
-	 * @return
+	 * @return BinaryTree to the right of this
 	 */
 	public BinaryTree<E> right()
 	{
@@ -89,6 +87,7 @@ public class BinaryTree<E> implements Iterable<E> {
 	
 	
 	/**
+	 * returns value of leaf
 	 * 
 	 * @return value of given leaf
 	 */
@@ -158,55 +157,57 @@ public class BinaryTree<E> implements Iterable<E> {
 	}
 
 	
-	// Iterators: //TODO
+	// Iterators:
 	/**
+	 * same thing as InOrderIterator
 	 * 
+	 * @return iteration of tree from left to root to right
 	 */
+	@SuppressWarnings("unchecked")
 	public Iterator<E> iterator()
 	{
-		iterator i = new BinaryTreeIterator();
+		return new InOrderIterator(this);
 	}
 	
 	
 	/**
-	 * 
-	 * @return
+	 * iterates through tree from root to left to right
+	 *  
+	 * @return iteration of tree in order from root, left, right
 	 */
+	@SuppressWarnings("unchecked")
 	public Iterator<E> preorderIterator()
 	{
-		iterator i = new PreorderIterator();
-		
-		-Root
-		-Left
-		-Right
+		return new PreOrderIterator(this);
 	}
 	
 	
 	/**
+	 * iterates through tree from left to root to right
 	 * 
-	 * @return
+	 * @return iteration of tree in order from left to root to right
 	 */
+	@SuppressWarnings("unchecked")
 	public Iterator<E> inorderIterator()
 	{
-		-Left
-		-Root
-		-Right
+		return new InOrderIterator(this);
 	}
 	
 	
 	/**
+	 * iterates through tree from left to right to root
 	 * 
-	 * @return
+	 * @return iteration of tree in order from left, right, root
 	 */
+	@SuppressWarnings( "unchecked" )
 	public Iterator<E> postorderIterator()
 	{
-		-Left
-		-Right
-		-Root
+		return new PostOrderIterator(this);
 	}
 	
 
 	/**
+	 * returns String representation of the tree
 	 * 
 	 * @return String representation of the tree
 	 */
@@ -220,10 +221,16 @@ public class BinaryTree<E> implements Iterable<E> {
 		}
 		s += value;
 		s += "[";
-		s += left.toString();
+		if(left != null)
+		{
+			s += left.toString();
+		}
 		s += "]";
 		s += "[";
-		s += right.toString();
+		if(right != null)
+		{
+			s += right.toString();
+		}
 		s += "]";
 		return s;
 		
@@ -232,7 +239,8 @@ public class BinaryTree<E> implements Iterable<E> {
 	
 	/**
 	 * Return the maximum path length to a descendant
-	 * @return
+	 * 
+	 * @return maximum path length to descendant
 	 */
 	public int height()
 	{
@@ -285,17 +293,14 @@ public class BinaryTree<E> implements Iterable<E> {
 	
 	/**
 	 * Return true if tree has minimal height and any holes in the tree appear in the last level to the right
-	 * @return
+	 * 
+	 * @return if tree is complete
 	 */
 	public boolean isComplete()
 	{		
 		if(isLeaf())
 			return true;
-		/*
-		 * right node can be null IF it's the right-most of the last level
-		else if(right == null || left == null)
-			return false;
-		*/
+	
 		// heights of right and left nodes must have a difference of 1
 		else if(Math.abs(right.height() - left.height()) <= 1)
 		{
@@ -315,7 +320,8 @@ public class BinaryTree<E> implements Iterable<E> {
 	
 	/**
 	 * Return true if the difference of heights of subtrees at every node is no greater than one
-	 * @return
+	 * 
+	 * @return if the tree is balanced
 	 */
 	public boolean isBalanced()
 	{
