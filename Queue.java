@@ -4,7 +4,7 @@
  * Queue- FIFO
  */
 
-package BinaryTree;
+//package BinaryTree;
 
 public interface Queue<E> {
 	
