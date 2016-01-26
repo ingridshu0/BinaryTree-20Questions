@@ -98,6 +98,7 @@ public class BinaryTree<E> implements Iterable<E> {
 	// Modifiers:
 	/**
 	 * sets left to new node
+	 * 
 	 * @param node
 	 */
 	public void setLeft(BinaryTree<E> node)
@@ -107,6 +108,7 @@ public class BinaryTree<E> implements Iterable<E> {
 	
 	
 	/**
+	 * sets right node
 	 * 
 	 * @param node
 	 */
@@ -117,6 +119,7 @@ public class BinaryTree<E> implements Iterable<E> {
 	
 	
 	/**
+	 * sets value of node
 	 * 
 	 * @param val
 	 */
@@ -128,7 +131,8 @@ public class BinaryTree<E> implements Iterable<E> {
 	
 	/**
 	 * Return true if node does not have any children
-	 * @return
+	 * 
+	 * @return if node has any children
 	 */
 	public boolean isLeaf()
 	{
@@ -138,7 +142,8 @@ public class BinaryTree<E> implements Iterable<E> {
 	
 	/**
 	 * Return number of descendants of node, including current node
-	 * @return
+	 * 
+	 * @return size of node
 	 */
 	public int size()
 	{
@@ -266,6 +271,7 @@ public class BinaryTree<E> implements Iterable<E> {
 
 	/**
 	 * Return true if adding a node to tree would increase its height
+	 * 
 	 * @return whether the tree is full
 	 */
 	public boolean isFull()
