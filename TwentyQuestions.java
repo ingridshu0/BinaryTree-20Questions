@@ -1,4 +1,4 @@
-package TwentyQuestions;
+//package TwentyQuestions;
 
 import java.util.Scanner;
 
