@@ -16,7 +16,6 @@ import java.util.Iterator;
  */
 public class BinaryTree<E> implements Iterable<E> {
 	
-	//
 	protected E value;
 	protected BinaryTree<E> left;
 	protected BinaryTree<E> right;
