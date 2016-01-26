@@ -4,7 +4,7 @@
  * ListNode
  */
 
-package BinaryTree;
+//package BinaryTree;
 
 public class ListNode<E> {
 	
